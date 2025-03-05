@@ -2,8 +2,8 @@ include Irvine32.inc
 Str_concat PROTO, pTarget:PTR BYTE, pSource:PTR BYTE
 
 .data
-targetStr BYTE "Let us blow some", 3 DUP(0), 0
-sourceStr BYTE " fireworks", 0
+targetStr BYTE "ABCDE", 10 DUP(0), 0 ; note if you want to remove this extra 0 at the end you can, however it is not recommended since it will break concatenation w spaces and you will have to DELETE line 75 if u do choose to remove the extra 0
+sourceStr BYTE "FGH", 0
 successMSG Byte "Success!", 0
 failedMSG Byte "Your target string failed to have enough space!", 0
 
