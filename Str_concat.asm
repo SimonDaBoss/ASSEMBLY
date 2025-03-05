@@ -4,9 +4,8 @@ Str_concat PROTO, pTarget:PTR BYTE, pSource:PTR BYTE
 .data
 targetStr BYTE "ABCDE", 10 DUP(0), 0 ; note if you want to remove this extra 0 at the end you can, however it is not recommended since it will break concatenation w spaces and you will have to DELETE line 75 if u do choose to remove the extra 0
 sourceStr BYTE "FGH", 0
-successMSG Byte "Success!", 0 ; this is optional however the question does ask for checking to see if there is a valid amount of space in targetStr
-failedMSG Byte "Your target string failed to have enough space!", 0 ; this is optional however the question does ask for checking to see if there is a valid amount of space in targetStr
-; to remove optional successMSG and failedMSG delete everything from lines 14-25 .
+successMSG Byte "Success!", 0
+failedMSG Byte "Your target string failed to have enough space!", 0
 
 .code
 main PROC
@@ -100,6 +99,12 @@ Str_concat PROC,
     success:
     mov eax, 1
     skipSuccess:
+
+    pop esi
+    pop edi
+    pop ecx
+    pop edx
+
     ret
 
 Str_concat ENDP
